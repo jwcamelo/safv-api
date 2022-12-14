@@ -21,11 +21,11 @@ public class Viagem {
     private String localPartida;
     private String localDestino;
 
-    @OneToMany
+    @ManyToMany
     List<Veiculo> veiculos = new ArrayList<>();
     @ManyToMany
     List<Servidor> servidores = new ArrayList<>();
-    @OneToMany
+    @ManyToMany
     List<Motorista> motoristas = new ArrayList<>();
 
 }

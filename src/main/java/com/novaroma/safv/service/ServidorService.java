@@ -1,6 +1,7 @@
 package com.novaroma.safv.service;
 
 import com.novaroma.safv.model.Servidor;
+import com.novaroma.safv.model.Viagem;
 import com.novaroma.safv.repository.ServidorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,6 @@ public class ServidorService {
     public Optional<Servidor> findById(String id){
         return repo.findById(id);
     }
-
     public Optional<Servidor> findByEmail(String email){
         return repo.findByEmailSes(email);
     }
