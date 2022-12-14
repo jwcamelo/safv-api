@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Viagem {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String data;
     private String hora;

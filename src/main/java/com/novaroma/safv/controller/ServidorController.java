@@ -7,6 +7,7 @@ import com.novaroma.safv.model.Setor;
 import com.novaroma.safv.service.FuncaoService;
 import com.novaroma.safv.service.ServidorService;
 import com.novaroma.safv.service.SetorService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,12 +32,21 @@ public class ServidorController {
         if(servidorOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.OK).body(servidorOptional.get());
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Função não encontrada");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Servidor não encontrado");
     }
 
     @GetMapping
     public ResponseEntity<List<Servidor>> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<Object> findByEmail(@PathVariable(value="email") String email){
+        Optional<Servidor> servidorOptional = service.findByEmail(email);
+        if(servidorOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.OK).body(servidorOptional.get());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Servidor não encontrado");
     }
 
     @DeleteMapping("/{id}")

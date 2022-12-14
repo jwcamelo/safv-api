@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface ServidorRepository extends JpaRepository<Servidor, String> {
     public Optional<Servidor> findByCpf(String cpf);
+    public Optional<Servidor> findByEmailSes(String emailSes);
 }

@@ -20,6 +20,10 @@ public class ServidorService {
         return repo.findById(id);
     }
 
+    public Optional<Servidor> findByEmail(String email){
+        return repo.findByEmailSes(email);
+    }
+
     public Servidor save(Servidor servidor){
         return repo.save(servidor);
     }

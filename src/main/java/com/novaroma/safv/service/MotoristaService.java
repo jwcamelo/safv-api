@@ -1,6 +1,7 @@
 package com.novaroma.safv.service;
 
 import com.novaroma.safv.model.Motorista;
+import com.novaroma.safv.model.Servidor;
 import com.novaroma.safv.repository.MotoristaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class MotoristaService {
     }
     public Optional<Motorista> findById(String id){
         return repo.findById(id);
+    }
+    public Optional<Motorista> findByEmail(String email){
+        return repo.findByEmail(email);
     }
 
     public Motorista save(Motorista motorista){

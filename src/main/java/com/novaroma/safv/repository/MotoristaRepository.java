@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface MotoristaRepository extends JpaRepository<Motorista, String> {
-    public Optional<Motorista> findByCnh(String cnh);
     public Optional<Motorista> findByCpf(String cpf);
+    public Optional<Motorista> findByEmail(String email);
 }

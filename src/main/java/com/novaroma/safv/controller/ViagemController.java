@@ -58,7 +58,7 @@ public class ViagemController {
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody ViagemDto viagemDto){
         Viagem viagem = new Viagem();
-        viagem.setId(viagemDto.getId());
+
         viagem.setData(viagemDto.getData());
         viagem.setHora(viagemDto.getHora());
         viagem.setLocalDestino(viagemDto.getLocalDestino());

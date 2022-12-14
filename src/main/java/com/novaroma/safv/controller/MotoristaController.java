@@ -1,6 +1,7 @@
 package com.novaroma.safv.controller;
 
 import com.novaroma.safv.model.Motorista;
+import com.novaroma.safv.model.Servidor;
 import com.novaroma.safv.service.MotoristaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,15 @@ public class MotoristaController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> find(@PathVariable(value = "id") String cnh){
         Optional<Motorista> motoristaOptional = service.findById(cnh);
+        if(motoristaOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.OK).body(motoristaOptional.get());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Motorista não encontrado");
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<Object> findByEmail(@PathVariable(value="email") String email){
+        Optional<Motorista> motoristaOptional = service.findByEmail(email);
         if(motoristaOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.OK).body(motoristaOptional.get());
         }
