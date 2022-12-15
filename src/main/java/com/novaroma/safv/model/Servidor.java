@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,6 +27,7 @@ public class Servidor extends Pessoa implements Serializable {
     private Funcao funcao;
 
     @JsonIgnore
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @ManyToMany(mappedBy = "servidores")
     private List<Viagem> viagens = new ArrayList<>();
 

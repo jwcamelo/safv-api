@@ -23,6 +23,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/viagem")
+@CrossOrigin(origins="*")
 public class ViagemController {
     @Autowired
     private ViagemService service;

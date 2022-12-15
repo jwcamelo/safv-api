@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/servidor")
+@CrossOrigin(origins="*")
 public class ServidorController {
     @Autowired
     private ServidorService service;

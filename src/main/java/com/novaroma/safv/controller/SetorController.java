@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/setor")
+@CrossOrigin(origins="*")
 public class SetorController {
     @Autowired
     private SetorService service;

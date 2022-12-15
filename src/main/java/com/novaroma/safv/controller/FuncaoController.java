@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/funcao")
+@CrossOrigin(origins="*")
 public class FuncaoController {
     @Autowired
     private FuncaoService service;
