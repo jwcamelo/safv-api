@@ -48,6 +48,11 @@ public class ViagemController {
         return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
     }
 
+    @GetMapping("/data")
+    public ResponseEntity<List<Viagem>> findByData(@RequestParam("data") String data){
+        return ResponseEntity.status(HttpStatus.OK).body(service.findByData(data));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable(value="id") Long id){
         if(service.delete(id)){
@@ -64,7 +69,7 @@ public class ViagemController {
         viagem.setHora(viagemDto.getHora());
         viagem.setLocalDestino(viagemDto.getLocalDestino());
         viagem.setLocalPartida(viagemDto.getLocalPartida());
-        if(!viagemDto.getCnhMotoristas().isEmpty()){
+        if(!viagemDto.getPlacaVeiculos().isEmpty()){
             for(String placa : viagemDto.getPlacaVeiculos()){
                 if(veiculoService.findById(placa).isPresent()){
                     viagem.getVeiculos().add(veiculoService.findById(placa).get());
@@ -191,8 +196,4 @@ public class ViagemController {
         }
     }
 
-    /*@GetMapping
-    public ResponseEntity<Page<Viagem>> findAllPage(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
-        return ResponseEntity.status(HttpStatus.OK).body(service.findAll(pageable));
-    }*/
 }

@@ -32,6 +32,11 @@ public class VeiculoController {
     public ResponseEntity<List<Veiculo>> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
     }
+    @GetMapping("/tipo")
+    public ResponseEntity<List<Veiculo>> findByTipo(@RequestParam("tipo") String tipo){
+        return ResponseEntity.status(HttpStatus.OK).body(service.findByTipo(tipo));
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable(value="id") String placa){

@@ -24,6 +24,10 @@ public class MotoristaService {
         return repo.findByEmail(email);
     }
 
+    public List<Motorista> findByCategoria(String categoria){
+        return repo.findByCategoria(categoria);
+    }
+
     public Motorista save(Motorista motorista){
         return repo.save(motorista);
     }

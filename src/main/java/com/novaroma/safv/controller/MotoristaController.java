@@ -3,6 +3,7 @@ package com.novaroma.safv.controller;
 import com.novaroma.safv.model.Motorista;
 import com.novaroma.safv.model.Servidor;
 import com.novaroma.safv.service.MotoristaService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,11 @@ public class MotoristaController {
             return ResponseEntity.status(HttpStatus.OK).body(motoristaOptional.get());
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Motorista não encontrado");
+    }
+
+    @GetMapping("/categoria")
+    public ResponseEntity<List<Motorista>> findByCategoria(@RequestParam("categoria") String categoria){
+        return ResponseEntity.status(HttpStatus.OK).body(service.findByCategoria(categoria));
     }
 
     @GetMapping

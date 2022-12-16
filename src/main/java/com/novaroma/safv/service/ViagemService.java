@@ -38,6 +38,10 @@ public class ViagemService {
         return false;
     }
 
+    public List<Viagem> findByData(String data){
+        return repo.findByData(data);
+    }
+
     public Page<Viagem> findAll(Pageable pageable) {
         return repo.findAll(pageable);
     }
